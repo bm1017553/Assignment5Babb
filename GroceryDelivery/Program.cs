@@ -9,7 +9,7 @@ builder.Services.AddRazorPages();
 if (builder.Environment.IsDevelopment())
 {
     builder.Services.AddDbContext<GroceryDbContext>(options =>
-        options.UseSqlite(builder.Configuration.GetConnectionString("GroceryDbContext")));
+        options.UseSqlite(builder.Configuration.GetConnectionString("GroceryContext")));
 }
 
 var app = builder.Build();
