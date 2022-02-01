@@ -2,11 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GroceryDelivery.Models
 {
     public class Order
     {
+        [Key]
         public int OrderID {get; set;} // Primary Key
         public int PricePaid {get; set;}
         public int CustomerID {get; set;} // Foreign Key
