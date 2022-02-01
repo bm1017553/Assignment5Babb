@@ -10,7 +10,7 @@ namespace GroceryDelivery.Models
     public class DeliveryPerson
     {
         [Key]
-        public int DelivererId {get; set;} // Primary Key
+        public int DelivererID {get; set;} // Primary Key
         public string FullName {get; set;}
         public string Address {get; set;}
         public int PhoneNumber {get; set;}
