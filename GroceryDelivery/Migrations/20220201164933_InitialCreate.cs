@@ -15,11 +15,11 @@ namespace GroceryDelivery.Migrations
                 {
                     CustomerID = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    FirstName = table.Column<string>(type: "TEXT", nullable: false),
-                    LastName = table.Column<string>(type: "TEXT", nullable: false),
-                    Address = table.Column<string>(type: "TEXT", nullable: false),
-                    PhoneNumber = table.Column<int>(type: "INTEGER", nullable: false),
-                    Email = table.Column<string>(type: "TEXT", nullable: false),
+                    FirstName = table.Column<string>(type: "TEXT", nullable: true),
+                    LastName = table.Column<string>(type: "TEXT", nullable: true),
+                    Address = table.Column<string>(type: "TEXT", nullable: true),
+                    PhoneNumber = table.Column<string>(type: "TEXT", nullable: true),
+                    Email = table.Column<string>(type: "TEXT", nullable: true),
                     CreditCard = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
@@ -33,9 +33,9 @@ namespace GroceryDelivery.Migrations
                 {
                     DelivererID = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    FullName = table.Column<string>(type: "TEXT", nullable: false),
-                    Address = table.Column<string>(type: "TEXT", nullable: false),
-                    PhoneNumber = table.Column<int>(type: "INTEGER", nullable: false)
+                    FullName = table.Column<string>(type: "TEXT", nullable: true),
+                    Address = table.Column<string>(type: "TEXT", nullable: true),
+                    PhoneNumber = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -48,9 +48,9 @@ namespace GroceryDelivery.Migrations
                 {
                     StoreID = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", nullable: false),
-                    Address = table.Column<string>(type: "TEXT", nullable: false),
-                    PhoneNumber = table.Column<int>(type: "INTEGER", nullable: false)
+                    Name = table.Column<string>(type: "TEXT", nullable: true),
+                    Address = table.Column<string>(type: "TEXT", nullable: true),
+                    PhoneNumber = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -63,7 +63,7 @@ namespace GroceryDelivery.Migrations
                 {
                     OrderID = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    PricePaid = table.Column<int>(type: "INTEGER", nullable: false),
+                    PricePaid = table.Column<double>(type: "REAL", nullable: false),
                     CustomerID = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
@@ -83,8 +83,8 @@ namespace GroceryDelivery.Migrations
                 {
                     ItemID = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    ItemName = table.Column<string>(type: "TEXT", nullable: false),
-                    ItemType = table.Column<string>(type: "TEXT", nullable: false),
+                    ItemName = table.Column<string>(type: "TEXT", nullable: true),
+                    ItemType = table.Column<string>(type: "TEXT", nullable: true),
                     Quantity = table.Column<int>(type: "INTEGER", nullable: false),
                     Price = table.Column<double>(type: "REAL", nullable: false),
                     StoreID = table.Column<int>(type: "INTEGER", nullable: false),
@@ -115,7 +115,7 @@ namespace GroceryDelivery.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     DateTime = table.Column<DateTime>(type: "TEXT", nullable: false),
                     DelivererID = table.Column<int>(type: "INTEGER", nullable: false),
-                    DeliveryPersonDelivererID = table.Column<int>(type: "INTEGER", nullable: false),
+                    DeliveryPersonDelivererID = table.Column<int>(type: "INTEGER", nullable: true),
                     OrderID = table.Column<int>(type: "INTEGER", nullable: false),
                     CustomerID = table.Column<int>(type: "INTEGER", nullable: true)
                 },
@@ -131,8 +131,7 @@ namespace GroceryDelivery.Migrations
                         name: "FK_OrderDeliveries_DeliveryPeople_DeliveryPersonDelivererID",
                         column: x => x.DeliveryPersonDelivererID,
                         principalTable: "DeliveryPeople",
-                        principalColumn: "DelivererID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "DelivererID");
                     table.ForeignKey(
                         name: "FK_OrderDeliveries_Orders_OrderID",
                         column: x => x.OrderID,

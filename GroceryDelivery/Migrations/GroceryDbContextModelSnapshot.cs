@@ -24,26 +24,22 @@ namespace GroceryDelivery.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Address")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("CreditCard")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("FirstName")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("LastName")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("PhoneNumber")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("CustomerID");
 
@@ -57,15 +53,13 @@ namespace GroceryDelivery.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Address")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("FullName")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("PhoneNumber")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("DelivererID");
 
@@ -79,11 +73,9 @@ namespace GroceryDelivery.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("ItemName")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ItemType")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("OrderID")
@@ -116,8 +108,8 @@ namespace GroceryDelivery.Migrations
                     b.Property<int>("CustomerID")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("PricePaid")
-                        .HasColumnType("INTEGER");
+                    b.Property<double>("PricePaid")
+                        .HasColumnType("REAL");
 
                     b.HasKey("OrderID");
 
@@ -141,7 +133,7 @@ namespace GroceryDelivery.Migrations
                     b.Property<int>("DelivererID")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("DeliveryPersonDelivererID")
+                    b.Property<int?>("DeliveryPersonDelivererID")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("OrderID")
@@ -166,15 +158,13 @@ namespace GroceryDelivery.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Address")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("PhoneNumber")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("StoreID");
 
@@ -219,9 +209,7 @@ namespace GroceryDelivery.Migrations
 
                     b.HasOne("GroceryDelivery.Models.DeliveryPerson", "DeliveryPerson")
                         .WithMany("OrderDeliveries")
-                        .HasForeignKey("DeliveryPersonDelivererID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("DeliveryPersonDelivererID");
 
                     b.HasOne("GroceryDelivery.Models.Order", "Order")
                         .WithOne("OrderDelivery")
@@ -248,8 +236,7 @@ namespace GroceryDelivery.Migrations
                 {
                     b.Navigation("Items");
 
-                    b.Navigation("OrderDelivery")
-                        .IsRequired();
+                    b.Navigation("OrderDelivery");
                 });
 
             modelBuilder.Entity("GroceryDelivery.Models.Store", b =>

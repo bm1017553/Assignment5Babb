@@ -11,10 +11,10 @@ namespace GroceryDelivery.Models
     {
         [Key]
         public int OrderID {get; set;} // Primary Key
-        public int PricePaid {get; set;}
+        public double PricePaid {get; set;}
         public int CustomerID {get; set;} // Foreign Key
-        public Customer Customer {get; set;} // Reference Object
-        public List<Item> Items {get; set;} // Navigation Property
-        public OrderDelivery OrderDelivery {get; set;} // Reference Object
+        public Customer? Customer {get; set;} // Reference Object
+        public List<Item>? Items {get; set;} // Navigation Property
+        public OrderDelivery? OrderDelivery {get; set;} // Reference Object
     }
 }

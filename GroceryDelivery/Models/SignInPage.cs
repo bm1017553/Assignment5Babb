@@ -11,7 +11,7 @@ namespace GroceryDelivery.Models
     public class SignInPage
     {
         [Key]
-        public DeliveryPerson EmployeeID { get; set; } // Foreign and Primary Key
+        public DeliveryPerson? EmployeeID { get; set; } // Foreign and Primary Key
         //Need sign in button and binding to Employee.cs
     }
 }

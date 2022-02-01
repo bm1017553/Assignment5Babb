@@ -11,9 +11,9 @@ namespace GroceryDelivery.Models
     {
         [Key]
         public int DelivererID {get; set;} // Primary Key
-        public string FullName {get; set;}
-        public string Address {get; set;}
-        public int PhoneNumber {get; set;}
-        public List<OrderDelivery> OrderDeliveries {get; set;} // Navigation Property
+        public string? FullName {get; set;}
+        public string? Address {get; set;}
+        public string? PhoneNumber {get; set;}
+        public List<OrderDelivery>? OrderDeliveries {get; set;} // Navigation Property
     }
 }
