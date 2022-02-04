@@ -12,9 +12,9 @@ namespace GroceryDelivery.Pages_Order
 {
     public class CreateModel : PageModel
     {
-        private readonly OrderContext _context;
+        private readonly GroceryDelivery.Models.GroceryDbContext _context;
 
-        public CreateModel(OrderContext context)
+        public CreateModel(GroceryDelivery.Models.GroceryDbContext context)
         {
             _context = context;
         }
@@ -36,7 +36,7 @@ namespace GroceryDelivery.Pages_Order
                 return Page();
             }
 
-            _context.Order.Add(Order);
+            _context.Orders.Add(Order);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

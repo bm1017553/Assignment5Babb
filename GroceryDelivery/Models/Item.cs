@@ -11,7 +11,9 @@ namespace GroceryDelivery.Models
     {
         [Key]
         public int ItemID {get; set;} // Primary Key
+        [Display(Name = "Item Name")]
         public string? ItemName {get; set;}
+        [Display(Name = "Item Type")]
         public string? ItemType {get; set;}
         public int Quantity {get; set;}
         [DataType(DataType.Currency)]

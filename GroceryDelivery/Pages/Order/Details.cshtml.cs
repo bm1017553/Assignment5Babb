@@ -12,9 +12,9 @@ namespace GroceryDelivery.Pages_Order
 {
     public class DetailsModel : PageModel
     {
-        private readonly OrderContext _context;
+        private readonly GroceryDelivery.Models.GroceryDbContext _context;
 
-        public DetailsModel(OrderContext context)
+        public DetailsModel(GroceryDelivery.Models.GroceryDbContext context)
         {
             _context = context;
         }
@@ -28,7 +28,7 @@ namespace GroceryDelivery.Pages_Order
                 return NotFound();
             }
 
-            Order = await _context.Order
+            Order = await _context.Orders
                 .Include(o => o.Customer).FirstOrDefaultAsync(m => m.OrderID == id);
 
             if (Order == null)

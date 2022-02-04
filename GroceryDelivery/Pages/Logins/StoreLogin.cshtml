@@ -8,16 +8,12 @@
 
 <form class="post">
     <div class="form-group">
-        <label asp-for="Store.StoreID" class="control-label"></label>
         <select asp-for="Store.StoreID" class="form-control" asp-items="ViewBag.StoreID">
             <option value="">Which store are you?</option>
         </select>
     </div>
     <div class="form-group">
-        <input type="submit" value="Sign-In" class="btn btn-primary">
+        <input type="hidden" asp-for="Store.StoreID" />
+        <input type="submit" value="Sign-In" class="btn btn-primary" asp-page="/Items/Index">
     </div>
 </form>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

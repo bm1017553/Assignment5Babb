@@ -13,9 +13,9 @@ namespace GroceryDelivery.Pages_Order
 {
     public class EditModel : PageModel
     {
-        private readonly OrderContext _context;
+        private readonly GroceryDelivery.Models.GroceryDbContext _context;
 
-        public EditModel(OrderContext context)
+        public EditModel(GroceryDelivery.Models.GroceryDbContext context)
         {
             _context = context;
         }
@@ -30,7 +30,7 @@ namespace GroceryDelivery.Pages_Order
                 return NotFound();
             }
 
-            Order = await _context.Order
+            Order = await _context.Orders
                 .Include(o => o.Customer).FirstOrDefaultAsync(m => m.OrderID == id);
 
             if (Order == null)
@@ -73,7 +73,7 @@ namespace GroceryDelivery.Pages_Order
 
         private bool OrderExists(int id)
         {
-            return _context.Order.Any(e => e.OrderID == id);
+            return _context.Orders.Any(e => e.OrderID == id);
         }
     }
 }

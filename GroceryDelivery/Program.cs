@@ -16,16 +16,6 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 
-builder.Services.AddDbContext<OrderContext>(options =>
-
-        
-    options.UseSqlite(builder.Configuration.GetConnectionString("OrderContext")));
-
-builder.Services.AddDbContext<ItemContext>(options =>
-
-        
-    options.UseSqlite(builder.Configuration.GetConnectionString("ItemContext")));
-
 if (builder.Environment.IsDevelopment())
 {
     builder.Services.AddDbContext<GroceryDbContext>(options =>

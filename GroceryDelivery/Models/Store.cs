@@ -13,6 +13,7 @@ namespace GroceryDelivery.Models
         public int StoreID {get; set;} // Primary Key
         public string? Name {get; set;}
         public string? Address {get; set;}
+        [Display(Name = "Phone Number")]
         public string? PhoneNumber {get; set;}
         public List<Item>? Items {get; set;} // Navigation Property
     }

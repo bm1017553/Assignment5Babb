@@ -11,14 +11,14 @@ using GroceryDelivery.Models;
 
 namespace GroceryDelivery.Pages.Logins
 {
-    public class StoreLoginModel : PageModel
+    public class CustomerLoginModel : PageModel
     {
         private readonly GroceryDbContext _context;
-        private readonly ILogger<StoreLoginModel> _logger;
+        private readonly ILogger<CustomerLoginModel> _logger;
 
         [BindProperty]
-        public Store Store {get; set;}
-        public StoreLoginModel(GroceryDbContext context, ILogger<StoreLoginModel> logger)
+        public Customer Customer {get; set;}
+        public CustomerLoginModel(GroceryDbContext context, ILogger<CustomerLoginModel> logger)
         {
             _context = context;
             _logger = logger;
@@ -26,7 +26,7 @@ namespace GroceryDelivery.Pages.Logins
 
         public void OnGet()
         {
-            ViewData["StoreID"] = new SelectList(_context.Stores, "StoreID", "Name");
+            ViewData["CustomerID"] = new SelectList(_context.Customers, "CustomerID", "FullName");
         }
     }
 }

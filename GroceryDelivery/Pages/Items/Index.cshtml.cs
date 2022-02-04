@@ -21,26 +21,12 @@ namespace GroceryDelivery.Pages_Items
         }
 
         public IList<Item> Item { get;set; }
-        public SelectList StoreFind {get; set;}
 
         public IActionResult OnGet()
-        {
-            StoreFind = new SelectList(_context.Stores, "StoreID", "Name"); 
+        { 
             Item = _context.Items
                 .Include(i => i.Order)
                 .Include(i => i.Store).ToList();
-                return Page();
-        }
-
-        [BindProperty]
-        public Store Store {get; set;}
-
-        public async Task<IActionResult> OnPostAsync(int id)
-        {
-            id = Store.StoreID;
-            Item = await _context.Items.Where(i => i.StoreID.Equals(id))
-                .Include(i => i.Order)
-                .Include(i => i.Store).ToListAsync();
                 return Page();
         }
     }

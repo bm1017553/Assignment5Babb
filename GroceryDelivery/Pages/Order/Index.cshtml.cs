@@ -12,9 +12,9 @@ namespace GroceryDelivery.Pages_Order
 {
     public class IndexModel : PageModel
     {
-        private readonly OrderContext _context;
+        private readonly GroceryDelivery.Models.GroceryDbContext _context;
 
-        public IndexModel(OrderContext context)
+        public IndexModel(GroceryDelivery.Models.GroceryDbContext context)
         {
             _context = context;
         }
@@ -23,7 +23,7 @@ namespace GroceryDelivery.Pages_Order
 
         public async Task OnGetAsync()
         {
-            Order = await _context.Order
+            Order = await _context.Orders
                 .Include(o => o.Customer).ToListAsync();
         }
     }

@@ -9,7 +9,8 @@ namespace GroceryDelivery.Models
     public class StoreLogin
     {
         [Required]
+        [Display(Name = "Store Name")]
         public string UserFirstName {get; set;}
-        public int SelectedStore {get; set;}
+        
     }
 }

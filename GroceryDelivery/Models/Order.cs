@@ -11,6 +11,7 @@ namespace GroceryDelivery.Models
     {
         [Key]
         public int OrderID {get; set;} // Primary Key
+        [Display(Name = "Price Paid")]
         public double PricePaid {get; set;}
         public int CustomerID {get; set;} // Foreign Key
         public Customer? Customer {get; set;} // Reference Object

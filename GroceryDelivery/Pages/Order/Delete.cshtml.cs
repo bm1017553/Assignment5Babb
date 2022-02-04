@@ -12,9 +12,9 @@ namespace GroceryDelivery.Pages_Order
 {
     public class DeleteModel : PageModel
     {
-        private readonly OrderContext _context;
+        private readonly GroceryDelivery.Models.GroceryDbContext _context;
 
-        public DeleteModel(OrderContext context)
+        public DeleteModel(GroceryDelivery.Models.GroceryDbContext context)
         {
             _context = context;
         }
@@ -29,7 +29,7 @@ namespace GroceryDelivery.Pages_Order
                 return NotFound();
             }
 
-            Order = await _context.Order
+            Order = await _context.Orders
                 .Include(o => o.Customer).FirstOrDefaultAsync(m => m.OrderID == id);
 
             if (Order == null)
@@ -46,11 +46,11 @@ namespace GroceryDelivery.Pages_Order
                 return NotFound();
             }
 
-            Order = await _context.Order.FindAsync(id);
+            Order = await _context.Orders.FindAsync(id);
 
             if (Order != null)
             {
-                _context.Order.Remove(Order);
+                _context.Orders.Remove(Order);
                 await _context.SaveChangesAsync();
             }
 
