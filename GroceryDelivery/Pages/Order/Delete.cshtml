@@ -11,6 +11,7 @@
 <div>
     <h4>Order</h4>
     <hr />
+    <!-- Displays info of the order to be deleted. -->
     <dl class="row">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Order.PricePaid)
@@ -25,7 +26,7 @@
             @Html.DisplayFor(model => model.Order.Customer.CustomerID)
         </dd>
     </dl>
-    
+    <!-- Input used to deleted the selected order. -->
     <form method="post">
         <input type="hidden" asp-for="Order.OrderID" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |

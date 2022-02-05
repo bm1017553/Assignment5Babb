@@ -29,7 +29,7 @@ namespace GroceryDelivery.Pages_Items
             {
                 return NotFound();
             }
-
+            // Finds the selected item in the database.
             Item = await _context.Items
                 .Include(i => i.Order)
                 .Include(i => i.Store).FirstOrDefaultAsync(m => m.ItemID == id);
@@ -38,8 +38,9 @@ namespace GroceryDelivery.Pages_Items
             {
                 return NotFound();
             }
-           ViewData["OrderID"] = new SelectList(_context.Orders, "OrderID", "OrderID");
-           ViewData["StoreID"] = new SelectList(_context.Stores, "StoreID", "StoreID");
+            // Creates two dropdown lists to choose store and order ids.
+            ViewData["OrderID"] = new SelectList(_context.Orders, "OrderID", "OrderID");
+            ViewData["StoreID"] = new SelectList(_context.Stores, "StoreID", "StoreID");
             return Page();
         }
 
@@ -51,7 +52,7 @@ namespace GroceryDelivery.Pages_Items
             {
                 return Page();
             }
-
+            // Sets the item as modified in the database.
             _context.Attach(Item).State = EntityState.Modified;
 
             try

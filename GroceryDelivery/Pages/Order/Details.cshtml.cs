@@ -27,7 +27,7 @@ namespace GroceryDelivery.Pages_Order
             {
                 return NotFound();
             }
-
+            // Finds the selected order in the database.
             Order = await _context.Orders
                 .Include(o => o.Customer).FirstOrDefaultAsync(m => m.OrderID == id);
 

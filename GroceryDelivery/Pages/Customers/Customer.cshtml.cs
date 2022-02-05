@@ -26,6 +26,7 @@ namespace GroceryDelivery.Pages.Customers
 
         public void OnGet()
         {
+            // Takes all current Customers in database and puts them in a list.
             Customers = _context.Customers.ToList();
         }
     }

@@ -29,7 +29,7 @@ namespace GroceryDelivery.Pages_Order
             {
                 return NotFound();
             }
-
+            // Finds the selected order in the database.
             Order = await _context.Orders
                 .Include(o => o.Customer).FirstOrDefaultAsync(m => m.OrderID == id);
 
@@ -37,7 +37,8 @@ namespace GroceryDelivery.Pages_Order
             {
                 return NotFound();
             }
-           ViewData["CustomerID"] = new SelectList(_context.Set<Customer>(), "CustomerID", "CustomerID");
+            // Creates a dropdown of Customers to be selected for order editing.
+            ViewData["CustomerID"] = new SelectList(_context.Set<Customer>(), "CustomerID", "CustomerID");
             return Page();
         }
 
@@ -49,7 +50,7 @@ namespace GroceryDelivery.Pages_Order
             {
                 return Page();
             }
-
+            // Sets the selected order as modified in the database.
             _context.Attach(Order).State = EntityState.Modified;
 
             try

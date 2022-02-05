@@ -11,6 +11,7 @@
 <div>
     <h4>Item</h4>
     <hr />
+    <!-- Lists info of the item that is to be deleted. -->
     <dl class="row">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Item.ItemName)
@@ -49,7 +50,7 @@
             @Html.DisplayFor(model => model.Item.Order.OrderID)
         </dd>
     </dl>
-    
+    <!-- Input to delete the chosen item. -->
     <form method="post">
         <input type="hidden" asp-for="Item.ItemID" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |

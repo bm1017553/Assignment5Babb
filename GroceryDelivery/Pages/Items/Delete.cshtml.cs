@@ -28,7 +28,7 @@ namespace GroceryDelivery.Pages_Items
             {
                 return NotFound();
             }
-
+            // Finds the selected item in the database.
             Item = await _context.Items
                 .Include(i => i.Order)
                 .Include(i => i.Store).FirstOrDefaultAsync(m => m.ItemID == id);
@@ -46,11 +46,12 @@ namespace GroceryDelivery.Pages_Items
             {
                 return NotFound();
             }
-
+            // Accesses the selected item in the database.
             Item = await _context.Items.FindAsync(id);
 
             if (Item != null)
             {
+                // Deletes item from the database.
                 _context.Items.Remove(Item);
                 await _context.SaveChangesAsync();
             }

@@ -26,6 +26,7 @@ namespace GroceryDelivery.Pages.Logins
 
         public void OnGet()
         {
+            // Creates a dropdown for Customer selection.
             ViewData["CustomerID"] = new SelectList(_context.Customers, "CustomerID", "FullName");
         }
     }

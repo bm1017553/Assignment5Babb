@@ -23,7 +23,8 @@ namespace GroceryDelivery.Pages_Items
         public IList<Item> Item { get;set; }
 
         public IActionResult OnGet()
-        { 
+        {
+            // Finds all items in the database.
             Item = _context.Items
                 .Include(i => i.Order)
                 .Include(i => i.Store).ToList();

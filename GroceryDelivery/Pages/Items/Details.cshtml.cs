@@ -27,7 +27,7 @@ namespace GroceryDelivery.Pages_Items
             {
                 return NotFound();
             }
-
+            // Finds the selected item in the database. 
             Item = await _context.Items
                 .Include(i => i.Order)
                 .Include(i => i.Store).FirstOrDefaultAsync(m => m.ItemID == id);

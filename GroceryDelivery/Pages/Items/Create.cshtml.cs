@@ -21,6 +21,7 @@ namespace GroceryDelivery.Pages_Items
 
         public IActionResult OnGet()
         {
+        // Creates two new dropdown lists on the create item form.
         ViewData["OrderID"] = new SelectList(_context.Orders, "OrderID", "OrderID");
         ViewData["StoreID"] = new SelectList(_context.Stores, "StoreID", "StoreID");
             return Page();
@@ -36,7 +37,7 @@ namespace GroceryDelivery.Pages_Items
             {
                 return Page();
             }
-
+            // Adds the new item to the database.
             _context.Items.Add(Item);
             await _context.SaveChangesAsync();
 

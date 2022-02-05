@@ -28,7 +28,7 @@ namespace GroceryDelivery.Pages_Order
             {
                 return NotFound();
             }
-
+            // Finds the selected order in the database.
             Order = await _context.Orders
                 .Include(o => o.Customer).FirstOrDefaultAsync(m => m.OrderID == id);
 
@@ -45,11 +45,12 @@ namespace GroceryDelivery.Pages_Order
             {
                 return NotFound();
             }
-
+            // Finds the selected order in the database.
             Order = await _context.Orders.FindAsync(id);
 
             if (Order != null)
             {
+                // Deletes the selected order from database.
                 _context.Orders.Remove(Order);
                 await _context.SaveChangesAsync();
             }

@@ -18,6 +18,7 @@ builder.Services.AddRazorPages();
 
 if (builder.Environment.IsDevelopment())
 {
+    // Dependency injection for GroceryDbContext 
     builder.Services.AddDbContext<GroceryDbContext>(options =>
         options.UseSqlite(builder.Configuration.GetConnectionString("GroceryContext")));
 }
@@ -26,6 +27,7 @@ var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
 {
+    // Seeds the database with provided information.
     var services = scope.ServiceProvider;
     SeedData.Initialize(services);
 }

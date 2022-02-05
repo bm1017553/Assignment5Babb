@@ -21,7 +21,8 @@ namespace GroceryDelivery.Pages_Order
 
         public IActionResult OnGet()
         {
-        ViewData["CustomerID"] = new SelectList(_context.Set<Customer>(), "CustomerID", "CustomerID");
+            // Creates a dropdown of Customers to select for the order.
+            ViewData["CustomerID"] = new SelectList(_context.Set<Customer>(), "CustomerID", "CustomerID");
             return Page();
         }
 
@@ -35,7 +36,7 @@ namespace GroceryDelivery.Pages_Order
             {
                 return Page();
             }
-
+            // Adds the order to the database.
             _context.Orders.Add(Order);
             await _context.SaveChangesAsync();
 

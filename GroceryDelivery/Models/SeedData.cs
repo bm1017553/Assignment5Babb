@@ -14,7 +14,7 @@ namespace GroceryDelivery.Models
             using (var context = new GroceryDbContext(
                 serviceProvider.GetRequiredService<DbContextOptions<GroceryDbContext>>()))
                 {
-                    // Look for customers, orders, stores, items, delivery persons
+                    // Look for customers, orders, stores, items
                     if (context.Customers.Any() && context.Orders.Any() && context.Stores.Any() && context.Items.Any())
                     {
                         return; // db seeded

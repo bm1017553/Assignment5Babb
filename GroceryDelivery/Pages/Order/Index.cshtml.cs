@@ -23,6 +23,7 @@ namespace GroceryDelivery.Pages_Order
 
         public async Task OnGetAsync()
         {
+            // Finds all orders in the database.
             Order = await _context.Orders
                 .Include(o => o.Customer).ToListAsync();
         }

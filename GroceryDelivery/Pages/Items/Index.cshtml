@@ -10,6 +10,7 @@
 <p>
     <a asp-page="Create">Create New Item</a>
 </p>
+<!-- Table used to display all current items. -->
 <table class="table">
     <thead>
         <tr>
@@ -28,9 +29,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Item[0].Store)
             </th>
-            @* <th>
-                @Html.DisplayNameFor(model => model.Item[0].Order)
-            </th> *@
             <th></th>
         </tr>
     </thead>
@@ -52,9 +50,6 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Store.Name)
             </td>
-            @* <td>
-                @Html.DisplayFor(modelItem => item.Order.OrderID)
-            </td> *@
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ItemID">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.ItemID">Details</a> |
@@ -64,3 +59,7 @@
 }
     </tbody>
 </table>
+
+<br>
+
+<u><a class="nav-link" asp-area="" asp-page="/Index">Back to Homepage</a></u>
