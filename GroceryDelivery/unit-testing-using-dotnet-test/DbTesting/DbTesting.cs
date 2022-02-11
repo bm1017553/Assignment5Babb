@@ -1,14 +1,14 @@
-using System.ComponentModel.DataAnnotations;
-using CustomerDatabase;
+﻿using System.ComponentModel.DataAnnotations;
 using Xunit;
+using Assignment5Babb.GroceryDelivery.Models.Customer;
 
-namespace CustomerDatabase.Tests
+namespace DbTesting
 {
-    public class ReturnCustomerName
+    public class DbTestingTests
     {
         [Theory]
         [InlineData(Customer.LastName)]
-        public void CustomerLastNameReturn(Models.Customer.LastName?)
+        public void CustomerLastNameReturn(Customer.LastName?)
         {
 
             if (Customer.LastName == Customer.LastName)

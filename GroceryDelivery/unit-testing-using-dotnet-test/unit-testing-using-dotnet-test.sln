@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbTesting", "DbTesting\DbTesting.csproj", "{A8FBE89F-ECEE-47AD-A67B-07768326B90C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbTestingTests.Tests", "DbTestingTests.Tests\DbTestingTests.Tests.csproj", "{B3A072C8-A336-4595-966B-4C581F7A4695}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A8FBE89F-ECEE-47AD-A67B-07768326B90C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8FBE89F-ECEE-47AD-A67B-07768326B90C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8FBE89F-ECEE-47AD-A67B-07768326B90C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8FBE89F-ECEE-47AD-A67B-07768326B90C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3A072C8-A336-4595-966B-4C581F7A4695}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3A072C8-A336-4595-966B-4C581F7A4695}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3A072C8-A336-4595-966B-4C581F7A4695}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3A072C8-A336-4595-966B-4C581F7A4695}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
